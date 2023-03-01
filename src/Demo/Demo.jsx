@@ -1,9 +1,11 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { basicSchema } from '../schemas';
+import { Select, Space } from 'antd';
+
 
 const onSubmit = async (values, actions) => {
-  
+
     console.log(values);
     console.log(actions);
     // clear các ô input sau 1 giây nhấn submit 
@@ -13,7 +15,7 @@ const onSubmit = async (values, actions) => {
 
 const Demo = () => {
     // touched dùng để validation khi mà ta vừa gõ xong input
-    const { values, errors, handleChange, touched, handleBlur, handleSubmit ,isSubmitting } = useFormik({
+    const { values, errors, handleChange, touched, handleBlur, handleSubmit, isSubmitting } = useFormik({
         initialValues: {
             email: "",
             phone: "",
@@ -23,6 +25,7 @@ const Demo = () => {
         validationSchema: basicSchema,
         onSubmit,
     })
+ 
 
     return (
         <div className='bg-gray-700 h-screen p-10'>
@@ -40,8 +43,7 @@ const Demo = () => {
                 {/* hiển thị lỗi ra màn hình */}
                 {errors.email && touched.email && <span className='text-red-500  mb-3 text-xs'>{errors.email}</span>}
 
-                 
-                 
+
                 <p>Sdth</p>
                 <input
                     className={errors.phone && touched.phone ? 'w-full p-1 rounded-md border border-red-600' : 'w-full p-1 rounded-md'}
@@ -84,7 +86,18 @@ const Demo = () => {
                 {/* hiển thị lỗi ra màn hình */}
                 {errors.confirmPassword && touched.confirmPassword && <span className='text-red-500  mb-3 text-xs'>{errors.confirmPassword}</span>}
 
+                <p>chọn</p>
+                {/* <Select
+                    defaultValue="GP01"
+                    style={{ width: 120 }}
+                    onChange={handleChangeAntD}
+                    options={[
+                        { value: 'GP01', label: 'GP01' },
+                        { value: 'GP02', label: 'GP02' },
+                        { value: 'GP03', label: 'GP03' },
 
+                    ]}
+                /> */}
 
                 {/* nút sẽ bị disabled mờ đi khi ta nhấn submit để tránh TH user click nhiều lần */}
                 <button disabled={isSubmitting} className='bg-black text-white w-full mt-5 hover:bg-slate-600' type='submit'>submit</button>
