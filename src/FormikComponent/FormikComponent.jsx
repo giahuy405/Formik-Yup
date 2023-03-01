@@ -4,6 +4,14 @@ import { advanceSchema } from '../schemas';
 import CustomCheckbox from './CustomCheckbox';
 import CustomInput from './CustomInput';
 import CustomSelect from './CustomSelect';
+
+const onSubmit = async (values, actions) => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+    console.log(values)
+    console.log(actions)
+    actions.resetForm();
+}
+
 const FormikComponent = () => {
 
     return (
@@ -12,8 +20,10 @@ const FormikComponent = () => {
                 <Formik
                     initialValues={{ username: '', jobType: '', acceptedTos: false }}
                     // validation
-                    validationSchema={advanceSchema}>
-                    {({ props }) => (
+                    validationSchema={advanceSchema}
+                    onSubmit={onSubmit}
+                >
+                    {({ isSubmitting }) => (
                         <Form>
                             {/* INPUT */}
                             <CustomInput
@@ -45,7 +55,10 @@ const FormikComponent = () => {
 
 
 
-                            <button type="submit" className='bg-orange-500 text-white font-bold w-full p-2 rounded-lg hover:bg-orange-700 mt-5'  >
+                            <button
+                            // nếu đang trong quá trình submitting button sẽ disable
+                            disabled={isSubmitting}
+                            type="submit" className='bg-orange-500 text-white font-bold w-full p-2 rounded-lg hover:bg-orange-700 mt-5'  >
                                 Submit
                             </button>
                         </Form>
