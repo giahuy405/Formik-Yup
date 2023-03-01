@@ -39,6 +39,9 @@ const Demo = () => {
                 />
                 {/* hiển thị lỗi ra màn hình */}
                 {errors.email && touched.email && <span className='text-red-500  mb-3 text-xs'>{errors.email}</span>}
+
+                 
+                 
                 <p>Sdth</p>
                 <input
                     className={errors.phone && touched.phone ? 'w-full p-1 rounded-md border border-red-600' : 'w-full p-1 rounded-md'}
@@ -51,6 +54,9 @@ const Demo = () => {
                 />
                 {/* hiển thị lỗi ra màn hình */}
                 {errors.phone && touched.phone && <span className='text-red-500  mb-3 text-xs'>{errors.phone}</span>}
+
+
+
                 <p>Mật khẩu</p>
                 <input
                     className={errors.password && touched.password ? 'w-full p-1 rounded-md border border-red-600' : 'w-full p-1 rounded-md'}
@@ -63,6 +69,8 @@ const Demo = () => {
                 />
                 {/* hiển thị lỗi ra màn hình */}
                 {errors.password && touched.password && <span className='text-red-500  mb-3 text-xs'>{errors.password}</span>}
+
+
                 <p>Xác nhận mật khẩu</p>
                 <input
                     className={errors.confirmPassword && touched.confirmPassword ? 'w-full p-1 rounded-md border border-red-600' : 'w-full p-1 rounded-md'}
@@ -75,6 +83,8 @@ const Demo = () => {
                 />
                 {/* hiển thị lỗi ra màn hình */}
                 {errors.confirmPassword && touched.confirmPassword && <span className='text-red-500  mb-3 text-xs'>{errors.confirmPassword}</span>}
+
+
 
                 {/* nút sẽ bị disabled mờ đi khi ta nhấn submit để tránh TH user click nhiều lần */}
                 <button disabled={isSubmitting} className='bg-black text-white w-full mt-5 hover:bg-slate-600' type='submit'>submit</button>
