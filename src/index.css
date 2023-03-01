@@ -15,3 +15,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.inputError {
+  border: 1px solid red;
+  width: 100%;
+  padding: 4px;
+  border-radius: 8px;
+}
+/* disabled khi ta submit */
+button:disabled{
+  opacity: 0.3;
+}
